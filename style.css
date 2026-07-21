@@ -5,30 +5,46 @@
     font-family:'Poppins',sans-serif;
 }
 
-body{
-    background:#0e0202;
+html,body{
+    width:100%;
+    height:100%;
 }
 
+body{
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+
+    /* Dark Sky Background */
+    background:linear-gradient(
+        135deg,
+        #0B1F3A 0%,
+        #1B4965 30%,
+        #173742 65%,
+        #000000 100%
+    );
+
+    background-attachment:fixed;
+}
 .card{
     width:90%;
     max-width:470px;
     background:linear-gradient(135deg,#00feba,#5b548a);
     color:#fff;
-    margin:100px auto 0;
     border-radius:20px;
     padding:40px 35px;
     text-align:center;
 
-    transition:0.4s ease;
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+    transition:.4s ease;
 }
 
 .card:hover{
-    transform:translateY(-12px) scale(1.03);
-    box-shadow:
-    0 15px 30px rgba(0,0,0,0.35),
-    0 0 25px rgba(0,254,186,0.4);
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 20px 45px rgba(0,0,0,.45);
 }
-
 
 .search{
     width:100%;
@@ -48,6 +64,11 @@ body{
     flex:1;
     margin-right:16px;
     font-size:18px;
+    transition:.3s;
+}
+
+.search input:focus{
+    box-shadow:0 0 15px rgba(255,255,255,.8);
 }
 
 .search button{
@@ -58,10 +79,20 @@ body{
     width:60px;
     height:60px;
     cursor:pointer;
+    transition:.3s;
+}
+
+.search button:hover{
+    transform:scale(1.1);
+    background:#d9fffb;
 }
 
 .search button img{
     width:25px;
+}
+
+.weather{
+    display:none;
 }
 
 .weather-icon{
@@ -82,8 +113,8 @@ body{
 
 .details{
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
     padding:0 20px;
     margin-top:50px;
 }
@@ -105,15 +136,36 @@ body{
     margin-top:-6px;
 }
 
-.weather{
+.error{
     display:none;
+    text-align:left;
+    margin:10px 0 0 10px;
+    font-size:14px;
+    color:#fff;
 }
 
-.error{
-    text-align:left;
-    margin-left:10px;
-    font-size:14px;
-    margin-top:10px;
-    color:white;
-    display:none;
+@media(max-width:500px){
+
+.card{
+    width:95%;
+    padding:30px 20px;
+}
+
+.weather h1{
+    font-size:60px;
+}
+
+.weather h2{
+    font-size:35px;
+}
+
+.details{
+    flex-direction:column;
+    gap:25px;
+}
+
+.search input{
+    font-size:16px;
+}
+
 }
